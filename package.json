@@ -1,7 +1,7 @@
 {
-  "name": "svelte-markdown",
+  "name": "@modal-labs/svelte-markdown",
   "description": "A markdown renderer for Svelte",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
@@ -20,9 +20,8 @@
     "types"
   ],
   "license": "MIT",
-  "author": "Pablo Berganza <pablo@berganza.dev>",
-  "repository": "github:pablo-abc/svelte-markdown",
-  "homepage": "https://github.com/pablo-abc/svelte-markdown",
+  "repository": "github:modal-labs/svelte-markdown",
+  "homepage": "https://github.com/modal-labs/svelte-markdown",
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",

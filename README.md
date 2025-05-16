@@ -5,6 +5,9 @@
 [![npm](https://img.shields.io/npm/dw/svelte-markdown)](https://www.npmjs.com/package/svelte-markdown)
 ![NPM](https://img.shields.io/npm/l/svelte-markdown)
 
+> [!NOTE]  
+> This repo is a fork of `svelte-markdown`, updated to work with Svelte 5 and the latest version of the `marked` package.
+
 A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown).
 
 ## Installation
@@ -102,6 +105,7 @@ The SvelteMarkdown component accepts the following props:
 To create custom renderer for an element, you can create a Svelte component with the default props ([you can check them here](https://marked.js.org/using_pro#renderer)), for example:
 
 _`ImageComponent.svelte`_
+
 ```svelte
 <script>
   export let href = "";
@@ -125,8 +129,8 @@ So you can import the component and pass to the `renderers` props:
   export let content;
 </script>
 
-<SvelteMarkdown source={content} 
-  renderers={{ image: ImageComponent }} 
+<SvelteMarkdown source={content}
+  renderers={{ image: ImageComponent }}
 />
 ```
 
@@ -141,13 +145,13 @@ For greater flexibility, an array of tokens may be given as `source`, in which c
 
   const tokens = marked.lexer('this is an **example**')
 
-  marked.walkTokens(tokens, token=> {
+  marked.walkTokens(tokens, (token) => {
     if (token.type == 'strong') token.type = 'em'
     token.raw = token.raw.toUpperCase()
   })
 </script>
 
-<SvelteMarkdown source={tokens} />
+<SvelteMarkdown source="{tokens}" />
 ```
 
 This will render the following:
@@ -168,11 +172,11 @@ A `parsed` event will be fired when the final tokens have been calculated, allow
 
   function handleParsed(event) {
     //access tokens via event.detail.tokens
-    console.log(event.detail.tokens);
+    console.log(event.detail.tokens)
   }
 </script>
 
-<SvelteMarkdown {source} on:parsed={handleParsed}>
+<SvelteMarkdown {source} on:parsed="{handleParsed}"></SvelteMarkdown>
 ```
 
 ## Available renderers
