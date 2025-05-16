@@ -1,10 +1,5 @@
 # Svelte Markdown
 
-[![Tests](https://github.com/pablo-abc/svelte-markdown/workflows/Tests/badge.svg?branch=master)](https://github.com/pablo-abc/svelte-markdown/actions?query=workflow%3ATests)
-[![npm](https://img.shields.io/npm/v/svelte-markdown)](https://www.npmjs.com/package/svelte-markdown)
-[![npm](https://img.shields.io/npm/dw/svelte-markdown)](https://www.npmjs.com/package/svelte-markdown)
-![NPM](https://img.shields.io/npm/l/svelte-markdown)
-
 > [!NOTE]  
 > This repo is a fork of `svelte-markdown`, updated to work with Svelte 5 and the latest version of the `marked` package.
 
