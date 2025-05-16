@@ -1,4 +1,7 @@
-export { Lexer, Slugger } from 'marked'
+export { Lexer } from 'marked'
+export { GithubSlugger as Slugger }
+
+import GithubSlugger from 'github-slugger'
 
 import {
   Heading,
@@ -49,8 +52,9 @@ export const defaultRenderers = {
   code: Code,
   br: Br,
 }
+
+/** @type {import("marked").MarkedOptions} */
 export const defaultOptions = {
-  baseUrl: null,
   breaks: false,
   gfm: true,
   headerIds: true,

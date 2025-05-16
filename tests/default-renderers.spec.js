@@ -1,13 +1,14 @@
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom/vitest'
 import { describe, test, expect } from 'vitest'
 import { render, screen } from '@testing-library/svelte'
 import SvelteMarkdown from '../src/SvelteMarkdown.svelte'
+import { stripCommentNodes } from './_helpers'
 
 describe('testing default renderers', () => {
   test('renders a paragraph', () => {
     render(SvelteMarkdown, { source: 'Plain text' })
 
-    const element = screen.getByText('Plain text')
+    const element = stripCommentNodes(screen.getByText('Plain text'))
     expect(element).toBeInTheDocument()
     expect(element).toContainHTML('<p>Plain text</p>')
   })
@@ -15,7 +16,7 @@ describe('testing default renderers', () => {
   test('renders emphasized paragraph', () => {
     render(SvelteMarkdown, { source: '*Plain text*' })
 
-    const element = screen.getByText('Plain text')
+    const element = stripCommentNodes(screen.getByText('Plain text'))
     expect(element).toBeInTheDocument()
     expect(element).toContainHTML('<em>Plain text</em>')
   })
@@ -23,7 +24,7 @@ describe('testing default renderers', () => {
   test('renders strong paragraph', () => {
     render(SvelteMarkdown, { source: '**Plain text**' })
 
-    const element = screen.getByText('Plain text')
+    const element = stripCommentNodes(screen.getByText('Plain text'))
     expect(element).toBeInTheDocument()
     expect(element).toContainHTML('<strong>Plain text</strong>')
   })
@@ -37,7 +38,9 @@ describe('testing default renderers', () => {
   test('renders a blockquote', () => {
     render(SvelteMarkdown, { source: '> Plain text' })
 
-    const element = document.getElementsByTagName('blockquote')[0]
+    const element = stripCommentNodes(
+      document.getElementsByTagName('blockquote')[0],
+    )
     expect(element).toBeInTheDocument()
     expect(element).toContainHTML('<blockquote><p>Plain text</p></blockquote>')
   })
